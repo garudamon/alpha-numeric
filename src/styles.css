@@ -1,4 +1,16 @@
+html, body {
+  height: 100%;
+}
+div.container {
+  display: flex;
+  flex: 1;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
 h1 {
-  color: hotpink;
-  font-family: cursive;
+  color: olivedrab;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-size: clamp(2rem, 5vw, 8rem); 
 }
