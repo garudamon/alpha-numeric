@@ -1,0 +1,22 @@
+{
+  "name": "alpha-numeric",
+  "version": "1.0.0",
+  "description": "",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "keywords": [
+    "learn",
+    "alphabet",
+    "numeric",
+    "kids",
+    "toodler"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.12.0"
+  }
+}
