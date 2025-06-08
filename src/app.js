@@ -23,3 +23,30 @@ const readInput = (ev) => {
 };
 
 document.addEventListener("keypress", readInput);
+
+// i18n logic
+const setActiveLang = () => {
+  let lang = localStorage.getItem("lang");
+  if (!lang) {
+    lang = "en";
+    setLang(lang);
+  }
+  document.querySelector(`.lang button.active`)?.classList.remove("active");
+  document
+    .querySelector(`.lang button[data-value="${lang}"]`)
+    .classList.add("active");
+};
+
+const setLang = (lang = "en") => {
+  localStorage.setItem("lang", lang);
+  setActiveLang();
+};
+
+setActiveLang();
+
+document.querySelectorAll(`.lang button`).forEach((button) => {
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+    setLang(e.target.dataset.value);
+  });
+});
