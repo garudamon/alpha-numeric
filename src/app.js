@@ -1,5 +1,18 @@
 var isSpeaking = false;
 
+const getLangData = async () => {
+  const lang = localStorage.getItem('lang') || 'en';
+  try {
+    const module = await import(`./lang/${lang}.js`);
+    return module.default;
+  } catch (error) {
+    console.error(`Error loading language data for ${lang}:`, error);
+    // Fallback to English if there's an error
+    const fallbackModule = await import('./lang/en.js');
+    return fallbackModule.default;
+  }
+};
+
 const speak = (char) => {
   isSpeaking = true;
 
@@ -50,3 +63,4 @@ document.querySelectorAll(`.lang button`).forEach((button) => {
     setLang(e.target.dataset.value);
   });
 });
+
